@@ -2,7 +2,8 @@ import { useEffect } from 'react';
 import useWebSocket, { ReadyState } from 'react-use-websocket';
 import './App.css';
 
-const socketUrl = 'ws:localhost:3001/websockets';
+// const socketUrlDev = 'ws:localhost:3001/websockets';
+const socketUrl = 'ws://iot-project-90qs.onrender.com/websockets';
 
 function App() {
   const { lastMessage, readyState } = useWebSocket(socketUrl);
