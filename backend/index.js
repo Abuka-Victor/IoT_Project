@@ -1,10 +1,17 @@
 import express from 'express';
 import morgan from 'morgan';
+import cors from 'cors';
 import websockets from './customWS.mjs';
 
 const app = express();
 // const wss = new WebSocket.Server({ port: '8080' });
 app.use(morgan('dev'));
+app.use(
+  cors({
+    origin: ['http://localhost:5173', /\.vercel\.app$/],
+    credentials: true,
+  })
+);
 const server = app.listen(3001, () => {
   console.log('Server Started');
   if (process.send) {
