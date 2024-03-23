@@ -9,7 +9,6 @@ app.use(morgan('dev'));
 app.use(
   cors({
     origin: ['http://localhost:5173', /\.vercel\.app$/],
-    credentials: true,
   })
 );
 const server = app.listen(3001, () => {
