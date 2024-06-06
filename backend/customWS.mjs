@@ -1,12 +1,20 @@
 import WebSocket, { WebSocketServer } from 'ws';
 import queryString from 'query-string';
 
-export default async (expressServer) => {
-  const websocketServer = new WebSocketServer({
-    noServer: true,
-    path: '/websockets',
-  });
+const websocketServer = new WebSocketServer({
+  noServer: true,
+  path: '/websockets',
+});
 
+export function broadcast(data) {
+  websocketServer.clients.forEach((client) => {
+    if (client.readyState === WebSocket.OPEN) {
+      client.send(data);
+    }
+  });
+}
+
+export default async (expressServer) => {
   expressServer.on('upgrade', (request, socket, head) => {
     websocketServer.handleUpgrade(request, socket, head, (websocket) => {
       websocketServer.emit('connection', websocket, request);
