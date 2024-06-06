@@ -7,7 +7,7 @@ const socketUrl = 'wss://iot-project-90qs.onrender.com/websockets';
 const socketUrl2 = 'ws://localhost:3001/websockets';
 
 function App() {
-  const { lastMessage, readyState } = useWebSocket(socketUrl2);
+  const { lastMessage, readyState } = useWebSocket(socketUrl);
 
   useEffect(() => {
     console.log(lastMessage);

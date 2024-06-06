@@ -13,7 +13,7 @@ app.use(
   })
 );
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 const server = app.listen(3001, () => {
   console.log('Server Started');
@@ -25,7 +25,7 @@ const server = app.listen(3001, () => {
 websockets(server);
 
 app.post('/iot', (req, res) => {
-  const { message, data } = req.body;
+  const { message } = req.body;
   const sendableData = JSON.stringify({ message, data });
   console.log(sendableData);
   broadcast(sendableData);
