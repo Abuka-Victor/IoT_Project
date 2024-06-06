@@ -26,7 +26,7 @@ websockets(server);
 
 app.post('/iot', (req, res) => {
   const { message } = req.body;
-  const sendableData = JSON.stringify({ message, data });
+  const sendableData = JSON.stringify({ message });
   console.log(sendableData);
   broadcast(sendableData);
   res.status(200).send('Data sent successfully');
