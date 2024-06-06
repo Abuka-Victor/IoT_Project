@@ -4,9 +4,10 @@ import './App.css';
 
 // const socketUrlDev = 'ws:localhost:3001/websockets';
 const socketUrl = 'wss://iot-project-90qs.onrender.com/websockets';
+const socketUrl2 = 'ws://localhost:3001/websockets';
 
 function App() {
-  const { lastMessage, readyState } = useWebSocket(socketUrl);
+  const { lastMessage, readyState } = useWebSocket(socketUrl2);
 
   useEffect(() => {
     console.log(lastMessage);
@@ -33,3 +34,7 @@ function App() {
 }
 
 export default App;
+
+{
+  /* <span>Last message: {JSON.parse(lastMessage.data).message}</span> */
+}
