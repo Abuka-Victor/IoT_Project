@@ -25,7 +25,7 @@ function App() {
     <>
       <div>
         {lastMessage ? (
-          <span>Last message: {JSON.parse(lastMessage.data).message}</span>
+          <span>Room Temperature: {JSON.parse(lastMessage.data).message}</span>
         ) : null}
       </div>
       <span>The WebSocket is currently {connectionStatus}</span>
